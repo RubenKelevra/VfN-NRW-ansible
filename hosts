@@ -22,7 +22,6 @@ lin
 nott
 odin
 rig
-sif
 sol
 vali
 ve
@@ -47,7 +46,6 @@ odin
 lodur
 
 [dns-slave]
-sif
 bragi
 
 [dns-master]
@@ -69,7 +67,6 @@ nott
 odin
 ra
 rig
-sif
 sol
 vali
 ve

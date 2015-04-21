@@ -138,7 +138,7 @@ Host rig
 	ControlPath ~/.ssh/socket-%r@%h:%p
 Host vidar
 	HostName vidar.vfn-nrw.de
-	Port 3337
+	Port 1337
 	Ciphers chacha20-poly1305@openssh.com,aes256-cbc
 	Compression yes
 	IPQoS lowdelay

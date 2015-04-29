@@ -3,13 +3,14 @@ Host bragi
 	Port 1337
 	Ciphers chacha20-poly1305@openssh.com,aes256-cbc
 	Compression yes
+	CompressionLevel 8
 	IPQoS lowdelay
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 2
-	ServerAliveCountMax 10
-	ConnectTimeout 10
+	ServerAliveInterval 5
+	ServerAliveCountMax 50
+	ConnectTimeout 20
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -19,13 +20,14 @@ Host loki
 	User root
 	Ciphers chacha20-poly1305@openssh.com,aes256-cbc
 	Compression yes
+	CompressionLevel 8
 	IPQoS lowdelay
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 2
-	ServerAliveCountMax 10
-	ConnectTimeout 10
+	ServerAliveInterval 5
+	ServerAliveCountMax 50
+	ConnectTimeout 20
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -35,13 +37,14 @@ Host ra
 	User root
 	Ciphers chacha20-poly1305@openssh.com,aes256-cbc
 	Compression yes
+	CompressionLevel 8
 	IPQoS lowdelay
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 2
-	ServerAliveCountMax 10
-	ConnectTimeout 10
+	ServerAliveInterval 5
+	ServerAliveCountMax 50
+	ConnectTimeout 20
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -51,13 +54,14 @@ Host buri
 	User root
 	Ciphers chacha20-poly1305@openssh.com,aes256-cbc
 	Compression yes
+	CompressionLevel 8
 	IPQoS lowdelay
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 2
-	ServerAliveCountMax 10
-	ConnectTimeout 10
+	ServerAliveInterval 5
+	ServerAliveCountMax 50
+	ConnectTimeout 20
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -66,13 +70,14 @@ Host sol
 	Port 1337
 	Ciphers chacha20-poly1305@openssh.com,aes256-cbc
 	Compression yes
+	CompressionLevel 8
 	IPQoS lowdelay
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 2
-	ServerAliveCountMax 10
-	ConnectTimeout 10
+	ServerAliveInterval 5
+	ServerAliveCountMax 50
+	ConnectTimeout 20
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -81,13 +86,14 @@ Host vali
 	Port 2337
 	Ciphers chacha20-poly1305@openssh.com,aes256-cbc
 	Compression yes
+	CompressionLevel 8
 	IPQoS lowdelay
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 2
-	ServerAliveCountMax 10
-	ConnectTimeout 10
+	ServerAliveInterval 5
+	ServerAliveCountMax 50
+	ConnectTimeout 20
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -96,13 +102,14 @@ Host fulla
 	Port 1337
 	Ciphers chacha20-poly1305@openssh.com,aes256-cbc
 	Compression yes
+	CompressionLevel 8
 	IPQoS lowdelay
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 2
-	ServerAliveCountMax 10
-	ConnectTimeout 10
+	ServerAliveInterval 5
+	ServerAliveCountMax 50
+	ConnectTimeout 20
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -111,13 +118,14 @@ Host rig
 	Port 1337
 	Ciphers chacha20-poly1305@openssh.com,aes256-cbc
 	Compression yes
+	CompressionLevel 8
 	IPQoS lowdelay
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 2
-	ServerAliveCountMax 10
-	ConnectTimeout 10
+	ServerAliveInterval 5
+	ServerAliveCountMax 50
+	ConnectTimeout 20
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -126,13 +134,14 @@ Host vidar
 	Port 1337
 	Ciphers chacha20-poly1305@openssh.com,aes256-cbc
 	Compression yes
+	CompressionLevel 8
 	IPQoS lowdelay
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 2
-	ServerAliveCountMax 10
-	ConnectTimeout 10
+	ServerAliveInterval 5
+	ServerAliveCountMax 50
+	ConnectTimeout 20
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -141,13 +150,14 @@ Host heimdal
 	Port 1337
 	Ciphers chacha20-poly1305@openssh.com,aes256-cbc
 	Compression yes
+	CompressionLevel 8
 	IPQoS lowdelay
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 2
-	ServerAliveCountMax 10
-	ConnectTimeout 10
+	ServerAliveInterval 5
+	ServerAliveCountMax 50
+	ConnectTimeout 20
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -156,13 +166,14 @@ Host frigg
 	Port 1337
 	Ciphers chacha20-poly1305@openssh.com,aes256-cbc
 	Compression yes
+	CompressionLevel 8
 	IPQoS lowdelay
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 2
-	ServerAliveCountMax 10
-	ConnectTimeout 10
+	ServerAliveInterval 5
+	ServerAliveCountMax 50
+	ConnectTimeout 20
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -171,13 +182,14 @@ Host odin
 	Port 4337
 	Ciphers chacha20-poly1305@openssh.com,aes256-cbc
 	Compression yes
+	CompressionLevel 8
 	IPQoS lowdelay
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 2
-	ServerAliveCountMax 10
-	ConnectTimeout 10
+	ServerAliveInterval 5
+	ServerAliveCountMax 50
+	ConnectTimeout 20
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -186,13 +198,14 @@ Host lin
 	Port 1337
 	Ciphers chacha20-poly1305@openssh.com,aes256-cbc
 	Compression yes
+	CompressionLevel 8
 	IPQoS lowdelay
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 2
-	ServerAliveCountMax 10
-	ConnectTimeout 10
+	ServerAliveInterval 5
+	ServerAliveCountMax 50
+	ConnectTimeout 20
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -201,13 +214,14 @@ Host nott
 	Port 1337
 	Ciphers chacha20-poly1305@openssh.com,aes256-cbc
 	Compression yes
+	CompressionLevel 8
 	IPQoS lowdelay
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 2
-	ServerAliveCountMax 10
-	ConnectTimeout 10
+	ServerAliveInterval 5
+	ServerAliveCountMax 50
+	ConnectTimeout 20
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -216,13 +230,14 @@ Host lodur
 	Port 22
 	Ciphers chacha20-poly1305@openssh.com,aes256-cbc
 	Compression yes
+	CompressionLevel 8
 	IPQoS lowdelay
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 2
-	ServerAliveCountMax 10
-	ConnectTimeout 10
+	ServerAliveInterval 5
+	ServerAliveCountMax 50
+	ConnectTimeout 20
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -231,13 +246,14 @@ Host ve
 	Port 5337
 	Ciphers chacha20-poly1305@openssh.com,aes256-cbc
 	Compression yes
+	CompressionLevel 8
 	IPQoS lowdelay
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 2
-	ServerAliveCountMax 10
-	ConnectTimeout 10
+	ServerAliveInterval 5
+	ServerAliveCountMax 50
+	ConnectTimeout 20
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -246,13 +262,14 @@ Host thor
 	Port 1337
 	Ciphers chacha20-poly1305@openssh.com,aes256-cbc
 	Compression yes
+	CompressionLevel 8
 	IPQoS lowdelay
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 2
-	ServerAliveCountMax 10
-	ConnectTimeout 10
+	ServerAliveInterval 5
+	ServerAliveCountMax 50
+	ConnectTimeout 20
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p

@@ -18,3 +18,5 @@
    - name: Update AUR-packages
      yaourt: upgrade_aur=yes
  
+handlers:
+  - include: roles/common/handlers/reboot.yml

@@ -2,7 +2,7 @@
 # Handler to handle common notifications. Handlers are called by other plays.
 # See http://docs.ansible.com/playbooks_intro.html for more information about handlers.
  
-- hosts: nott
+- hosts: archlinux
 
   tasks:
  
@@ -12,11 +12,24 @@
       yaourt: upgrade=yes
     - name: Check for kernel-updates
       yaourt: check_kernelupdate=yes
-      notify:
-      - Restart server
-      - Wait for server to restart
+      register: kernelpackage
+    - name: Restart server
+      when: kernelpackage.changed
+      sudo: yes
+      command: sync
+      command: shutdown -r +1 'Reboot triggered by Ansible'&
+      async: 0
+      poll: 0
+      ignore_errors: true
+    - name: Wait for server to restart
+      when: kernelpackage.changed
+      local_action:
+        module: wait_for
+          host={{ inventory_hostname }}
+          delay=60
+          timeout=35
     - name: Update AUR-packages
       yaourt: upgrade_aur=yes
  
-  handlers:
-    - include: roles/common/handlers/reboot.yml
+
+

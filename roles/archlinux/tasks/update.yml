@@ -4,16 +4,17 @@
  
 - hosts: archlinux
 
-  tasks:
+ tasks:
  
-    - name: Update yaourt's cache
-      yaourt: update_cache=yes
-    - name: Update packages
-      yaourt: upgrade=yes
-    - name: Check for kernel-updates
-      yaourt: check_kernelupdate=yes
-      notify:
-      - Restart server
-      - Wait for server to restart
-    - name: Update AUR-packages
-      yaourt: upgrade_aur=yes
+   - name: Update yaourt's cache
+     yaourt: update_cache=yes
+   - name: Update packages
+     yaourt: upgrade=yes
+   - name: Check for kernel-updates
+     yaourt: check_kernelupdate=yes
+     notify:
+     - Restart server
+     - Wait for server to restart
+   - name: Update AUR-packages
+     yaourt: upgrade_aur=yes
+ 

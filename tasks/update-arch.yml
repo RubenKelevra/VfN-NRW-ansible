@@ -1,19 +1,19 @@
- ---
+---
 # Handler to handle common notifications. Handlers are called by other plays.
 # See http://docs.ansible.com/playbooks_intro.html for more information about handlers.
  
-- hosts: archlinux
+- hosts: frigg
 
-tasks:
+  tasks:
  
-- name: Update yaourt's cache
-  yaourt: update_cache=yes
-- name: Update packages
-  yaourt: upgrade=yes
-- name: Check for kernel-updates
-  yaourt: check_kernelupdate=yes
-  notify:
-  - Restart server
-  - Wait for server to restart
-- name: Update AUR-packages
-  yaourt: upgrade_aur=yes
+    - name: Update yaourt's cache
+      yaourt: update_cache=yes
+    - name: Update packages
+      yaourt: upgrade=yes
+    - name: Check for kernel-updates
+      yaourt: check_kernelupdate=yes
+      notify:
+      - Restart server
+      - Wait for server to restart
+    - name: Update AUR-packages
+      yaourt: upgrade_aur=yes

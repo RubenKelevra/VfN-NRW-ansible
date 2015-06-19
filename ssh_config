@@ -8,9 +8,9 @@ Host bragi
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 5
-	ServerAliveCountMax 50
-	ConnectTimeout 20
+	ServerAliveInterval 3
+	ServerAliveCountMax 5
+	ConnectTimeout 4
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -25,9 +25,9 @@ Host loki
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 5
-	ServerAliveCountMax 50
-	ConnectTimeout 20
+	ServerAliveInterval 3
+	ServerAliveCountMax 5
+	ConnectTimeout 4
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -42,9 +42,9 @@ Host ra
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 5
-	ServerAliveCountMax 50
-	ConnectTimeout 20
+	ServerAliveInterval 3
+	ServerAliveCountMax 5
+	ConnectTimeout 4
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -59,9 +59,9 @@ Host buri
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 5
-	ServerAliveCountMax 50
-	ConnectTimeout 20
+	ServerAliveInterval 3
+	ServerAliveCountMax 5
+	ConnectTimeout 4
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -75,9 +75,9 @@ Host sol
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 5
-	ServerAliveCountMax 50
-	ConnectTimeout 20
+	ServerAliveInterval 3
+	ServerAliveCountMax 5
+	ConnectTimeout 4
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -91,9 +91,9 @@ Host vali
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 5
-	ServerAliveCountMax 50
-	ConnectTimeout 20
+	ServerAliveInterval 3
+	ServerAliveCountMax 5
+	ConnectTimeout 4
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -107,9 +107,9 @@ Host fulla
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 5
-	ServerAliveCountMax 50
-	ConnectTimeout 20
+	ServerAliveInterval 3
+	ServerAliveCountMax 5
+	ConnectTimeout 4
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -123,9 +123,9 @@ Host rig
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 5
-	ServerAliveCountMax 50
-	ConnectTimeout 20
+	ServerAliveInterval 3
+	ServerAliveCountMax 5
+	ConnectTimeout 4
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -139,9 +139,9 @@ Host vidar
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 5
-	ServerAliveCountMax 50
-	ConnectTimeout 20
+	ServerAliveInterval 3
+	ServerAliveCountMax 5
+	ConnectTimeout 4
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -155,9 +155,9 @@ Host heimdal
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 5
-	ServerAliveCountMax 50
-	ConnectTimeout 20
+	ServerAliveInterval 3
+	ServerAliveCountMax 5
+	ConnectTimeout 4
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -171,9 +171,9 @@ Host frigg
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 5
-	ServerAliveCountMax 50
-	ConnectTimeout 20
+	ServerAliveInterval 3
+	ServerAliveCountMax 5
+	ConnectTimeout 4
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -187,9 +187,9 @@ Host odin
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 5
-	ServerAliveCountMax 50
-	ConnectTimeout 20
+	ServerAliveInterval 3
+	ServerAliveCountMax 5
+	ConnectTimeout 4
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -203,9 +203,9 @@ Host lin
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 5
-	ServerAliveCountMax 50
-	ConnectTimeout 20
+	ServerAliveInterval 3
+	ServerAliveCountMax 5
+	ConnectTimeout 4
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -219,9 +219,9 @@ Host nott
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 5
-	ServerAliveCountMax 50
-	ConnectTimeout 20
+	ServerAliveInterval 3
+	ServerAliveCountMax 5
+	ConnectTimeout 4
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -235,9 +235,9 @@ Host lodur
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 5
-	ServerAliveCountMax 50
-	ConnectTimeout 20
+	ServerAliveInterval 3
+	ServerAliveCountMax 5
+	ConnectTimeout 4
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -251,9 +251,9 @@ Host ve
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 5
-	ServerAliveCountMax 50
-	ConnectTimeout 20
+	ServerAliveInterval 3
+	ServerAliveCountMax 5
+	ConnectTimeout 4
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -267,9 +267,9 @@ Host thor
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 5
-	ServerAliveCountMax 50
-	ConnectTimeout 20
+	ServerAliveInterval 3
+	ServerAliveCountMax 5
+	ConnectTimeout 4
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p
@@ -283,9 +283,9 @@ Host horus
 	KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,diffie-hellman-group-exchange-sha256
 	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 	TCPKeepAlive no
-	ServerAliveInterval 5
-	ServerAliveCountMax 50
-	ConnectTimeout 20
+	ServerAliveInterval 3
+	ServerAliveCountMax 5
+	ConnectTimeout 4
 	ControlMaster auto
 	ControlPersist yes
 	ControlPath ~/.ssh/socket-%r@%h:%p

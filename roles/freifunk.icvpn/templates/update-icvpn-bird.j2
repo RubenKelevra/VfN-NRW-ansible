@@ -1,0 +1,9 @@
+#!/bin/sh
+
+DATADIR={{ icvpn_meta_path }}
+
+sudo {{ icvpn_scripts_path }}/mkbgp -4 -f bird -d peers -s "$DATADIR" -x {{ icvpn_community }} > /etc/bird.d/02-icvpn-peers.conf
+sudo {{ icvpn_scripts_path }}/mkbgp -6 -f bird -d peers -s "$DATADIR" -x {{ icvpn_community }} > /etc/bird6.d/02-icvpn-peers.conf
+
+#birdc configure > /dev/null
+#birdc6 configure > /dev/null

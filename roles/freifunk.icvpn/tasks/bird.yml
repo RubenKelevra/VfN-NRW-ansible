@@ -1,0 +1,37 @@
+---
+- include_vars: "{{ icvpn_meta_path }}/{{ icvpn_community }}"
+
+- name: add kernel table icvpn
+  lineinfile: dest=/etc/iproute2/rt_tables regexp='^{{ icvpn_kernel_table }}' line='{{ icvpn_kernel_table }} icvpn'
+
+- name: install bird
+  yum: name={{ item }} state=present
+  with_items:
+    - bird
+    - bird6
+
+- name: ensure /etc/bird.d exists
+  file: dest=/etc/bird.d state=directory
+
+- name: template /etc/bird.conf
+  template: src=bird.conf.j2 dest='/etc/bird.conf' owner=root group=root mode='0644'
+  notify:
+  - reload bird config
+
+- name: template /etc/bird.d/01-icvpn.conf
+  template: src=icvpn.conf.j2 dest='/etc/bird.d/01-icvpn.conf' owner=root group=root mode='0644'
+  notify:
+  - reload bird config
+
+- name: ensure /etc/bird6.d exists
+  file: dest=/etc/bird6.d state=directory
+
+- name: template /etc/bird6.conf
+  template: src=bird6.conf.j2 dest='/etc/bird6.conf' owner=root group=root mode='0644'
+  notify:
+  - reload bird6 config
+
+- name: template /etc/bird6.d/01-icvpn.conf
+  template: src=icvpn6.conf.j2 dest='/etc/bird6.d/01-icvpn6.conf' owner=root group=root mode='0644'
+  notify:
+  - reload bird6 config

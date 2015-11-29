@@ -1,0 +1,10 @@
+router id {{ bgp[icvpn_hostname].ipv4 }};
+
+# this pseudo-protocol watches all interface up/down events
+protocol device {
+    scan time 10;
+};
+
+### additional configuration  ###
+
+include "/etc/bird.d/*";

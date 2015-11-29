@@ -1,0 +1,6 @@
+on down "
+    sudo /usr/bin/brctl delif freifunk-{{ item.value.shortname }} mesh-{{ item.value.shortname }}
+    sudo /usr/bin/batctl -m mesh-{{ item.value.shortname }} if del $INTERFACE
+    sudo ip rule del from all iif freifunk-{{ item.value.shortname }} lookup 42 prio 4200
+    sudo ip -6 rule del from all iif freifunk-{{ item.value.shortname }} lookup 42 prio 4200
+";

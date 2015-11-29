@@ -1,0 +1,35 @@
+---
+- name: copy update-icvpn-tinc
+  copy: src=update-icvpn-tinc dest='/usr/local/bin/update-icvpn-tinc' owner=root group=root mode='0744'
+
+- name: execute update-icvpn-tinc once
+  command: /usr/local/bin/update-icvpn-tinc creates=/etc/tinc/hosts
+  notify:
+    - reload tinc
+
+
+- name: install sudo
+  yum: name=sudo state=present
+
+- name: template /usr/local/bin/update-icvpn-bird
+  template: src=update-icvpn-bird.j2 dest='/usr/local/bin/update-icvpn-bird' owner=root group=root mode='0744'
+
+- name: execute update-icvpn-bird once
+  command: /usr/local/bin/update-icvpn-bird creates=/etc/bird/bird6.d/02-icvpn-peers.conf
+#  notify:
+#    - reload bird
+#    - reload bird6
+
+#- name: test bird config
+#  command: bird -c /etc/bird/bird.conf -p
+#  changed_when: false
+#
+#- name: ensure bird is running
+#  service: name=bird state=started
+#
+#- name: test bird6 config
+#  command: bird6 -c /etc/bird/bird6.conf -p
+#  changed_when: false
+
+#- name: ensure bird6 is running
+#  service: name=bird6 state=started

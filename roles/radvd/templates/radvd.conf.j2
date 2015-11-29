@@ -1,0 +1,20 @@
+# {{ ansible_managed }}
+
+{% for key, value in communities.iteritems() %}
+# {{ value.name }}
+interface freifunk-{{ value.shortname }}
+{
+    AdvSendAdvert on;
+    IgnoreIfMissing on;
+    AdvLinkMTU 1500;
+
+    prefix fddf:ebfd:a801:{{ value.areacode }}::/64
+    {
+    };
+
+    RDNSS fddf:ebfd:a801:{{ value.areacode }}::ac1
+    {
+    };
+};
+
+{% endfor %}

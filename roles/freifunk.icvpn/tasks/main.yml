@@ -1,0 +1,22 @@
+---
+- include: get-repos.yml
+- include: tinc.yml
+- include: bird.yml
+- include: update-scripts.yml
+
+#- name: ensure tinc is running
+#  service: name=tinc state=started
+
+#- name: test bird config
+#  command: bird -c /etc/bird/bird.conf -p
+#  changed_when: false
+
+#- name: ensure bird is running
+#  service: name=bird state=started
+
+#- name: test bird6 config
+#  command: bird6 -c /etc/bird/bird6.conf -p
+#  changed_when: false
+
+#- name: ensure bird6 is running
+#  service: name=bird6 state=started

@@ -1,0 +1,37 @@
+---
+hostname_prefix: "{{ item.value.site_name | default(item.value.shortname }}"
+site_name: "{{ item.value.site_name | default(item.value.name) }}"
+site_code: "{{ item.value.site_code | default(item.key) }}"
+
+prefix6: "{{ item.value.subnet6 | default('fddf:ebfd:a801:%s::/64' % item.value.areacode) }}"
+
+timezone: "{{ item.value.timezone | default('CET-1CEST,M3.5.0,M10.5.0/3') }}"
+#ntp_servers:
+
+regdom: "{{ item.value.timezone | default('DE') }}"
+
+ssid: "{{ item.value.ssid | default(item.value.shortname + '.freifunk.net') }}"
+ssid5: "{{ item.value.ssid | default(ssid) }}"
+
+channel: "{{ item.value.channel | default(1) }}"
+channel5: "{{ item.value.channel5 | default(36) }}"
+htmode: "{{ item.value.htmode | default('HT40+') }}"
+htmode5: "{{ item.value.htmode5 | default('HT40+') }}"
+
+mesh_compat: "{{ item.value.meshcompat | default('15') }}"
+mesh_essid: "{{ item.value.mesh_essid | default('mesh-v' + mesh_compat) }}"
+mesh_bssid: "{{ item.value.mesh_bssid | default('02:ca:fe') | makemeshbssid(mesh_compat, item.value.areacode) }}"
+mesh_mcast_rate: "{{ item.value.mesh_mcast_rate | default(12000) }}"
+
+mesh5_essid: "{{ item.value.mesh5_essid | default(mesh_essid) }}"
+mesh5_bssid: "{{ item.value.mesh5_bssid | default(mesh_bssid) }}"
+mesh_5mcast_rate: "{{ item.value.mesh5_mcast_rate | default(mesh_mcast_rate) }}"
+
+next_node_ip4: "{{ item.value.next_node_ip4 }}"
+next_node_ip6: "{{ item.value.next_node_ip6 }}"
+next_node_mac: "{{ item.value.next_node_mac }}"
+
+fastd_methods:
+- salsa2012+umac
+
+fastd_mtu: {{ item.value.fastd_mtu | default('1312') }}

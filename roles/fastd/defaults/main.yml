@@ -1,0 +1,23 @@
+---
+# default variables for fastd
+fastd_drop_capabilities: 'yes'
+fastd_forward: 'no'
+fastd_hide_ip: 'yes'
+fastd_hide_mac: 'yes'
+fastd_syslog_level: 'info'
+fastd_ciphers:
+- { method: 'salsa2012' }
+- { method: 'aes128-ctr' }
+fastd_macs:
+- { mac: 'ghash', implementation: 'pclmulqdq' }
+fastd_methods:
+- salsa2012+umac
+- salsa2012+gmac
+- aes128-ctr+umac
+- aes128-gcm
+fastd_mode: 'tap'
+fastd_mtu: 1312
+fastd_secure_handshakes: 'yes'
+fastd_bind:
+- address: '0.0.0.0'
+- address: '[::]'

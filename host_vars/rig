@@ -1,0 +1,6 @@
+---
+fastd_bind:
+- address: "62.141.34.115"
+- address: "[2001:4ba0:92f3:300::2]"
+
+announced_max_bw: 140

@@ -1,0 +1,25 @@
+---
+fastd_on_up:
+- command: "
+    ip link set up dev $INTERFACE
+    modprobe batman-adv
+    batctl -m mesh-{{ item.value.shortname }} if add $INTERFACE
+    ip link set up dev mesh-{{ item.value.shortname }}
+    batctl -m mesh-{{ item.value.shortname }} it 5000
+    batctl -m mesh-{{ item.value.shortname }} nc 0
+    batctl -m mesh-{{ item.value.shortname }} mm 1
+    batctl -m mesh-{{ item.value.shortname }} dat 1
+    echo '120' > /sys/class/net/mesh-{{ item.value.shortname }}/mesh/hop_penalty
+    ip rule add iif freifunk-{{ item.value.shortname }} lookup 42 prio 4200
+    ip -6 rule add iif freifunk-{{ item.value.shortname }} lookup 42 prio 4200
+    brctl addif freifunk-{{ item.value.shortname }} mesh-{{ item.value.shortname }}
+"
+fastd_on_down:
+- command: "
+	sudo /usr/bin/brctl delif freifunk-{{ item.value.shortname }} mesh-{{ item.value.shortname }}
+    sudo /usr/bin/batctl -m mesh-{{ item.value.shortname }} if del $INTERFACE
+    sudo ip rule del from all iif freifunk-{{ item.value.shortname }} lookup 42 prio 4200
+    sudo ip -6 rule del from all iif freifunk-{{ item.value.shortname }} lookup 42 prio 4200
+"
+fastd_on_verify:
+- command: "/usr/local/bin/fastd-verify"

@@ -1,0 +1,14 @@
+---
+- name: install git
+  yum: name=git state=present
+
+- name: clone icvpn git
+  git: repo=https://github.com/freifunk/icvpn.git dest=/etc/tinc/icvpn
+
+- name: clone icvpn-meta repo
+  git: repo=https://github.com/freifunk/icvpn-meta.git dest={{ icvpn_meta_path }}
+  register: giticpn-meta
+
+- name: clone icvpn-scripts repo  
+  git: repo=https://github.com/freifunk/icvpn-scripts dest={{ icvpn_scripts_path }}
+  register: giticvpn-scripts

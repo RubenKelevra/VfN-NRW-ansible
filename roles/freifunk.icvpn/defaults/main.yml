@@ -1,0 +1,7 @@
+---
+# default variables for icvpn
+
+icvpn_meta_path: '/usr/share/freifunk/icvpn-meta'
+icvpn_scripts_path: '/opt/icvpn-scripts'
+
+icvpn_kernel_table: 202

@@ -1,0 +1,12 @@
+---
+
+
+- hosts: localhost
+  tasks:
+    - include_vars: communities.yml
+#    - debug: var={{ "10.76.0.0/16" | makefastdport }}
+#    - debug: var={{ "2001:470:7235::1/48" | makefastdport }}
+#    - debug: var={{ communities.hagen.subnet }}
+    - debug: var={{ "02:ca:fe:" | makemeshbssid("15", "21") }}
+#    - debug: msg="{{item.key}} --> {{item.value}}"
+#      with_dict: "{{ communities }}"

@@ -1,0 +1,7 @@
+---
+
+- include_vars: communities.yml
+
+- name: Debug
+  debug: var="{{ mesh_bssid }}"
+  with_dict: "{{ communities }}"

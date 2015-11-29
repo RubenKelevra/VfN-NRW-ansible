@@ -1,0 +1,17 @@
+---
+
+- include_vars: communities.yml
+
+- name: install bind
+  dnf: name=bind-chroot state=present
+
+- name: Generate named.conf
+  template: >
+    src=named.conf.j2
+    dest="/etc/named.test.conf"
+    owner=root
+    group=root
+    mode='0600'
+
+- name: Enable named
+  service: name=named enabled=yes

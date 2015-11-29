@@ -1,0 +1,40 @@
+---
+
+- include_vars: communities.yml
+
+#- name: install fastd
+#  dnf: name=fastd state=present
+
+- name: fastd directories
+  file: path="/etc/fastd/{{ item.key }}" state=directory
+  with_dict: "{{ communities }}"
+
+#- name: Debug
+#  debug: var="{{ fastd_on_up }}"
+
+- name: Generate fastd.conf
+  template: >
+    src=fastd.conf.j2
+    dest="/etc/fastd/{{ item.key }}/fastd.conf"
+    owner=root
+    group=root
+    mode='0600'
+  with_dict: "{{ communities }}"
+
+- name: Generate on-up.conf
+  template: >
+    src=on-up.conf.j2
+    dest="/etc/fastd/{{ item.key }}/on-up.conf"
+    owner=root
+    group=root
+    mode='0600'
+  with_dict: "{{ communities }}"
+
+- name: Generate on-down.conf
+  template: >
+    src=on-down.conf.j2
+    dest="/etc/fastd/{{ item.key }}/on-down.conf"
+    owner=root
+    group=root
+    mode='0600'
+  with_dict: "{{ communities }}"

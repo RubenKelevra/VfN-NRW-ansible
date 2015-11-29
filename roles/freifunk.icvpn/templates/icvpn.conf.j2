@@ -1,0 +1,61 @@
+table icvpn;
+
+### functions ###
+
+# own network
+function is_self_net() {
+    return (net ~ [ 
+{% for network in networks.ipv4 %}
+        {{ network }}+{% if not loop.last %},
+{% endif %}
+{% endfor %}
+
+    ]);
+}
+
+# freifunk ip ranges in general
+function is_freifunk() {
+  return net ~ [
+    10.0.0.0/8+,
+    172.16.0.0/12+
+  ];
+}
+
+### kernel ###
+
+# synchronize all except self prefix
+# from bird icvpn table to kernel routing table nr. X
+# nothing in the other direction
+protocol kernel kernel_icvpn {
+    scan time 10;
+
+    table icvpn;
+    kernel table {{ icvpn_kernel_table }};
+    import none;
+    export filter {
+        if is_self_net() then reject;
+        krt_prefsrc = {{ bgp[icvpn_hostname].ipv4 }};
+        accept;
+    };
+};
+
+### static routes ###
+
+protocol static static_route {
+{% for network in networks.ipv4 %}
+  route {{ network }} reject;
+{% endfor %}
+  table icvpn;
+};
+
+### templates ###
+
+# template for icvpn gateways of other cities
+template bgp peers {
+  table icvpn;
+  local as {{ asn }};
+  # ignore routes for our own network
+  import where (is_freifunk() && !is_self_net());
+  export where is_freifunk();
+  route limit 10000;
+};

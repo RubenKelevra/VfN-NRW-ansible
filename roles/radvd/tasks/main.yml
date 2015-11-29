@@ -1,0 +1,17 @@
+---
+
+- include_vars: communities.yml
+
+- name: install radvd
+  dnf: name=radvd state=present
+
+- name: Generate radvd.conf
+  template: >
+    src=radvd.conf.j2
+    dest="/etc/radvd.conf"
+    owner=root
+    group=root
+    mode='0600'
+
+- name: Enable radvd
+  service: name=radvd enabled=yes

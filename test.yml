@@ -1,0 +1,8 @@
+---
+
+- hosts: metis.fk.cx
+  remote_user: root
+  vars:
+    fastd_secret: "abc"
+  roles:
+    - fastd

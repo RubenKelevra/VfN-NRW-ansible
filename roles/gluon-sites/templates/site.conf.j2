@@ -1,0 +1,167 @@
+{
+	hostname_prefix = '{{ hostname_prefix }}',
+	site_name = '{{ site_name }}',
+	site_code = '{{ site_code }}',
+
+
+	--[[	General network settings ]]
+	prefix4 = '{{ item.value.subnet4 }}',
+	{% if item.value.subnet6 %}
+	prefix6 = '{{ item.value.subnet6 }}',
+	{% else %}
+	prefix6 = 'fddf:ebfd:a801:{{ item.value.areacode }}::/64',
+	{% endif %}
+
+
+	--[[	NTP settings ]]
+	timezone = 'CET-1CEST,M3.5.0,M10.5.0/3',
+	ntp_servers = {
+		'fddf:ebfd:a801:2144::ac1'
+	},
+
+
+	--[[	Wireless settings ]]
+	regdom = 'DE',
+
+	wifi24 = {
+		ssid = '{{ ssid | default(item.value.shortname + ".freifunk.net") }}',
+		channel = {{ channel }},
+		htmode = '{{ htmode }}',
+		mesh_ssid = '{{ mesh_essid }}',
+		mesh_bssid = '{{ mesh_bssid }}',
+		mesh_mcast_rate = {{ mesh_mcast_rate }},
+	},
+
+	wifi5 = {
+		ssid = '{{ ssid5 }}',
+		channel = {{ channel5 }},
+		htmode = '{{ htmode }}',
+		mesh_ssid = '{{ mesh5_essid }}',
+		mesh_bssid = '{{ mesh5_bssid }}',
+		mesh_mcast_rate = {{ mesh5_mcast_rate }},
+	},
+
+
+	--[[	Next-Node ]]
+	next_node = {
+		ip4 = '10.76.0.1',
+		ip6 = 'fddf:ebfd:a801:2144:ffff::1',
+		mac = 'da:ab:dd:7d:ff:ff',
+	},
+        --[[    Network configurations ]]
+        
+        mesh_on_wan = true,
+
+	--[[	Gateway settings ]]
+	fastd_mesh_vpn = {
+		enabled = true,
+		methods = {'salsa2012+umac', 'salsa2012+gmac'},
+		mtu = 1312,
+		groups = {
+			backbone = {
+				limit = 2,
+				peers = {
+					bragi = {
+						key = 'cec71b1bd4c9aad0c906766f71a29d35414c0b4a2a00f177de8ba2be68da517b',
+						remotes = {'[2a03:4000:2:453::2] port 15076', '46.38.232.72 port 15076'},
+					},
+					rig = {
+						key = '495ec50a98c316a223de13af0a74ec81c982807f96a0615f422c8c14b65f5bcd',
+						remotes = {'62.141.34.115 port 15076'},
+					},
+				},
+			},
+		},
+	},
+
+
+	--[[	Autoupdater settings ]]
+	autoupdater = {
+		branch = 'stable',
+		branches = {
+			stable = {
+				name = 'stable',
+				mirrors = {
+					'http://1.updates.freifunk-leverkusen.de/stable/sysupgrade',
+					'http://2.updates.freifunk-leverkusen.de/stable/sysupgrade',
+					'http://[fddf:ebfd:a801:2144::fff1]/stable/sysupgrade/',
+					'http://[fddf:ebfd:a801:2144::fff2]/stable/sysupgrade/',
+				},
+				probability = 0.08,
+				good_signatures = 2,
+				pubkeys = {
+					'1edde86c682e36260258c49ae55f0a6e07c058d6ac806a6d30a903ff6d4848d8', -- Felix Kaechele (Freifunk Leverkusen)
+					'6cdb4e7eb5ddc4ba57d336dfc86b7fe7db647acc077407824030b6fc0f4f91bc', -- Ruben Kelevra (Freifunk Leverkusen)
+					'b5270666ed74c74965ae9188d71282504c912ec19dccc6ead2f63ac2791e0c7f', -- Kevin Olbrich (Freifunk Hückeswagen)
+					'33d1fe8cb1edd20995fdeb0d70559911d55ee07bad344e91c54567edf716c54d', -- Robert Proemper (Freifunk Remscheid)
+					},
+			},
+			beta = {
+				name = 'beta',
+				mirrors = {
+					'http://1.updates.freifunk-leverkusen.de/beta/sysupgrade',
+					'http://2.updates.freifunk-leverkusen.de/beta/sysupgrade',
+					'http://[fddf:ebfd:a801:2144::fff1]/beta/sysupgrade/',
+					'http://[fddf:ebfd:a801:2144::fff2]/beta/sysupgrade/',
+				},
+				probability = 0.08,
+				good_signatures = 2,
+				pubkeys = {
+					'1edde86c682e36260258c49ae55f0a6e07c058d6ac806a6d30a903ff6d4848d8', -- Felix Kaechele (Freifunk Leverkusen)
+					'6cdb4e7eb5ddc4ba57d336dfc86b7fe7db647acc077407824030b6fc0f4f91bc', -- Ruben Kelevra (Freifunk Leverkusen)
+					'b5270666ed74c74965ae9188d71282504c912ec19dccc6ead2f63ac2791e0c7f', -- Kevin Olbrich (Freifunk Hückeswagen)
+					'33d1fe8cb1edd20995fdeb0d70559911d55ee07bad344e91c54567edf716c54d', -- Robert Proemper (Freifunk Remscheid)
+				},
+			},
+		},
+	},
+
+
+	--[[	Simple TC settings to limit the bandwidth of the vpn-uplink ]]
+	simple_tc = {
+		mesh_vpn = {
+			ifname = 'mesh-vpn',
+			enabled = false,
+			limit_egress = 200,
+			limit_ingress = 3000,
+		},
+	},
+
+
+	--[[	Config Mode settings ]]
+	config_mode = {
+		msg_welcome = [[
+Willkommen zum Einrichtungsassistenten f&uuml;r deinen neuen Freifunk Leverkusen
+Freifunk-Knoten. F&uuml;lle das folgende Formular deinen Vorstellungen
+entsprechend aus und sende es ab.
+]],
+		msg_pubkey = [[
+Er startet gerade neu und wird anschließend versuchen, sich mit anderen Freifunk-Knoten in seiner N&auml;he zu verbinden. Stell ihn nun auf dein Fensterbrett, damit er m&ouml;glichst viele andere Knoten per Funk erreichen kann. Die von dir eingegebenen Daten, wie der Name des Knotens, die Position und deine Kontaktdaten werden nach dem Neustart automatisch verschl&uuml;sselt an die Server deiner Freifunk-Community &uuml;bermittelt. Diese Daten nutzen wir ausschließlich dazu deinen Knoten auf der Freifunk-Karte anzuzeigen, damit auch andere deinen Hotspot finden k&ouml;nnen.</p>
+<p><h4>Mach das Netz noch st&auml;rker!</h4></p>
+<p>Verbinde nun die blaue Buchse deines Freifunk-Knotens mit einem LAN-Port deines privaten Router, um deinen Internetanschluss f&uuml;r Freifunk zur Verf&uuml;gung zu stellen.</p>
+<p><h4>Das Teilen ist sicher!</h4></p>
+<p>&Uuml;ber deinen Internetanschluss wird lediglich ein Tunnel zu unseren Servern aufgebaut, ein sogenannter VPN-Tunnel ("virtuelles privates Netzwerk"). Diese Verbindung ist verschl&uuml;sselt und dient dazu ein gemeinsames lokales Netzwerk - zusammen mit anderen Freifunk-Knoten - zu schaffen. Das Internet in diesem lokalen Netzwerk stellt der "Verbund freier Netzwerke NRW e.V." (VfN NRW) zur Verf&uuml;gung. Im Internet treten dadurch lediglich unsere IPs in Erscheinung.</p>
+<p><h4>Sag uns mehr &uuml;ber dich!</h4></p>
+
+<p><h4>Nimm Teil!</h4></p>
+<p>Die Freifunker treffen sich auf Stammtischen, zum Kennenlernen und Austausch von Wissen. Wenn du Fragen hast, komm vorbei!</p>
+<p>Den Termin f&uuml;r den n&auml;chsten Stammtisch findest du auf unserer <a href="http://freifunk-leverkusen.de/">Webseite</a>.</p>
+<p><h5>Abschließende Hinweise:</h5></p>
+<ul>
+<li>F&uuml;r Hard- oder Software-Sch&auml;den jeder Art &uuml;bernehmen wir keine Haftung.</li>
+<li>Dein Knoten macht automatische Updates. Zur Sicherheit werden diese nach einer Pr&uuml;fung von mindestens zwei Personen in deiner Community digital unterschrieben. Nur Updates mit zwei validen Signaturen werden automatisch installiert. Du kannst die automatische Update-Funktion im Experten-Modus abschalten. Bitte beachte in diesem Fall, dass der Betrieb des Ger&auml;tes nicht sichergestellt werden kann und Sicherheitsl&uuml;cken nicht automatisch geschlossen werden k&ouml;nnen.</li>
+<li>Dein Knoten &uuml;bertragt WLAN-Scans in regelm&auml;ßigen Abst&auml;nden an die Statistik-Server des VfN NRW. Diese Server sehen dabei welche WLANs dein Freifunk-Knoten in seiner Umgebung empfangen kann. Du hast mit dem Firmware-Download hierzu bereits eingewilligt. Diese Daten werden verwendet um eine ungef&auml;hre Position zu ermitteln, wenn du keine Geo-Daten angegeben hast. Diese Funktion wird demn&auml;chst abschaltbar sein. Diese Scanergebnisse werden nur durch den VfN NRW automatisiert verarbeitet und sind nicht &ouml;ffentlich zug&auml;nglich.</li>
+<li>Wir erfassen teils &ouml;ffentlich Informationen zur Nutzung des Knotens (z. B. Anzahl der verbundenen Ger&auml;te, durchschnittliche Datenrate oder die Auslastung der Hardware). Diese Informationen haben rein technische Relevanz und erm&ouml;glichen keine R&uuml;ckschl&uuml;sse auf Personen oder die Art der Nutzung deines Freifunk-Knotens, sondern dienen der Analyse und dem Aufsp&uuml;ren von Engp&auml;ssen.</li>
+<li>Keine der Daten, die erhoben werden, werden verkauft. Weder als Datensatz noch als aggregierte Statistik.</li>
+</ul>
+<p>Aus technischen Gr&uuml;nden wird hier nun der &ouml;ffentliche Schl&uuml;ssel f&uuml;r den Zugang deines Freifunk-Knotens zum VPN-Tunnel angezeigt.
+]],
+		msg_reboot = [[
+<p>
+Viel Spa&szlig; bei der Erkundung von Freifunk!
+</p>
+]],
+	},
+}
+
+-- vim: filetype=lua

@@ -1,0 +1,27 @@
+---
+- include_vars: "{{ icvpn_meta_path }}/{{ icvpn_community }}"
+
+- name: install tinc
+  yum: name=tinc state=present
+
+- name: template tinc.conf
+  template: src=tinc.conf.j2 dest=/etc/tinc/icvpn/tinc.conf owner=root group=root mode='0644'
+  notify:
+    - reload tinc
+
+- name: template tinc-up
+  template: src=tinc-up.j2 dest=/etc/tinc/icvpn/tinc-up owner=root group=root mode='0744'
+  notify:
+    - reload tinc
+
+- name: template tinc-down
+  template: src=tinc-down.j2 dest=/etc/tinc/icvpn/tinc-down owner=root group=root mode='0744'
+  notify:
+    - reload tinc
+
+- name: generate tinc keys
+  command: /usr/sbin/tincd -n icvpn -K 4096
+  args:
+    creates: /etc/tinc/icvpn/rsa_key.priv
+  notify:
+    - reload tinc

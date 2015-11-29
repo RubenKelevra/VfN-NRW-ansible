@@ -1,0 +1,88 @@
+{% if item.value.name is defined %}
+# fastd configuration for {{ item.value.name }}
+{% endif %}
+# {{ ansible_managed }}
+{% for b in fastd_bind %}
+bind {{ b.address }} port {%if item.value.subnet is defined %}{{ item.value.subnet | makefastdport }}{% else %}{{ b.port }}{% endif %}{% if b.interface is defined %} interface "{{ b.interface }}"{% endif %};
+{% endfor %}
+
+drop capabilities {{ fastd_drop_capabilities }};
+forward {{ fastd_forward }};
+hide ip addresses {{ fastd_hide_ip }};
+hide mac addresses {{ fastd_hide_mac }};
+
+{% if fastd_peers is defined %}
+{% for name, group in fastd_peers.iteritems() %}
+{% if group.peers_dir is defined %}
+peer group "{{ name }}" {
+  include peers from "{{ group.peers_dir }}";
+{% if group.peers_limit is defined %}
+  peer limit {{ group.peers_limit }};
+{% endif %}
+}
+{% endif %}
+{% endfor %}
+{% endif %}
+
+log to syslog level {{ fastd_syslog_level }};
+
+{% if fastd_ciphers is defined %}
+{% for cipher in fastd_ciphers %}
+cipher "{{ cipher.method }}"{% if cipher.implementation is defined %} use "{{ cipher.implementation }}"{% endif %};
+{% endfor %}
+{% else %}
+cipher "salsa2012+umac" use "xmm";
+{% endif %}
+{% if fastd_macs is defined %}
+{% for mac in fastd_macs %}
+mac "{{ mac.mac }}"{% if mac.implementation is defined %} use "{{ mac.implementation }}"{% endif %};
+{% endfor %}
+{% endif %}
+{% if fastd_methods is defined %}
+{% for cipher in fastd_methods %}
+method "{{ cipher }}";
+{% endfor %}
+{% else %}
+method "salsa2012+umac";
+{% endif %}
+mode {{ fastd_mode }};
+mtu {{ fastd_mtu }};
+
+{% if fastd_on_pre_up is defined and fastd_on_pre_up.command is defined %}
+on pre-up {{ fastd_on_pre_up.mode | default('sync') }} "{{ fastd_on_pre_up.command }}";
+{% endif %}
+{% if fastd_on_up is defined and fastd_on_up.command is defined %}
+on up {{ fastd_on_up.mode | default('sync') }} "{{ fastd_on_up.command }}";
+{% endif %}
+{% if fastd_on_down is defined and fastd_on_down.command is defined %}
+on down {{ fastd_on_down.mode | default('sync') }} "{{ fastd_on_down.command }}";
+{% endif %}
+{% if fastd_on_post_down is defined and fastd_on_post_down.command is defined %}
+on post-down {{ fastd_on_post_down.mode | default('sync') }} "{{ fastd_on_post_down.command }}";
+{% endif %}
+{% if fastd_on_connect is defined and fastd_on_connect.command is defined %}
+on connect {{ fastd_on_connect.mode | default('async') }} "{{ fastd_on_connect.command }}";
+{% endif %}
+{% if fastd_on_establish is defined and fastd_on_establish.command is defined %}
+on establish {{ fastd_on_establish.mode | default('async') }} "{{ fastd_on_establish.command }}";
+{% endif %}
+{% if fastd_on_disestablish is defined and fastd_on_disestablish.command is defined %}
+on disestablish {{ fastd_on_disestablish.mode | default('async') }} "{{ fastd_on_disestablish.command }}";
+{% endif %}
+{% if fastd_on_verify is defined and fastd_on_verify.command is defined %}
+on verify {{ fastd_on_verify.mode | default('async') }} "{{ fastd_on_verify.command }}";
+{% endif %}
+
+secret "{{ fastd_secret }}";
+secure handshakes {{ fastd_secure_handshakes }};
+
+{% if fastd_status_socket is defined %}
+status socket "{{ fastd_status_socket }}";
+{% elif item is defined %}
+status socket "/run/fastd/{{ item.key }}.sock";
+{% endif %}
+
+{% if item is defined %}
+include "on-up.conf";
+include "on-down.conf";
+{% endif %}

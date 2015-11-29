@@ -1,0 +1,255 @@
+---
+# VfN NRW e.V. Community list
+# Per-Community Parameters:
+#   name: String
+#   shortname: String len: 2-4
+#   areacode: Hexadecimal len: 2-4
+#   subnet4: IPv4 CIDR
+#   subnet6ula: ULA IPv6 CIDR
+#   subnet6: Public IPv6 CIDR
+#   anycastIP: anycast IP in Subnet which is used for e.g. ntp
+
+
+communities:
+  bottrop:
+    name: "Freifunk Bottrop"
+    shortname: bot
+    sitecode: bottrop
+    areacode: 2041
+    subnet4: 10.79.0.0/16
+    subnet6ula: "fddf:ebfd:a801:2041::/64"
+    subnet6: "FIXME"
+    port: 15079
+    anycastIP: "ac1"
+    ssid: bot.freifunk.net
+    domain: bottrop.freifunk.net
+    update_server1: "fff1"
+    update_server2: "fff2"
+    city: Bottrop
+    city2: Bottroper
+    remotes:
+      bragi: "5fd538144fbe90c9581ed2cc7697c7c455612974f5106174fcd54f5f4b01bf23"
+      rig: "455cce5f50f97178094b251358d9c235a16787d3ba283905095841ba7dbe9b64"
+    
+  gronau:
+    name: "Freifunk Gronau"
+    shortname: gro
+    sitecode: gronau
+    areacode: 4859
+    subnet4: 10.206.0.0/16
+    subnet6ula: "fddf:ebfd:a801:4859::/64"
+    subnet6: "FIXME"
+    port: 15206
+    anycastIP: "ac1"
+    ssid: bot.freifunk.net
+    domain: bottrop.freifunk.net
+    update_server1: "fff1"
+    update_server2: "fff2"
+    city: Gronau
+    city2: Gronauer
+    remotes:
+      bragi: "64c2ad4d0e2ebb21cb368f9455f38149d12daff2232381c1e3afe0181ff7085e"
+      rig: "546637954c9f2bd1657f97ea27ec73b304fa586f7f29509b886b9e818483a9eb"
+      thor: "8f4a9a7d5fd83dda7e5983381279f08480b7483718b76c3e342dd19665362476"
+      buri: "119f4699859ce23368c73b964b6658539a492fe99c04813ee5f34be60def9d1d"
+    
+  hueckeswagen:
+    name: "Freifunk Hückeswagen"
+    shortname: hw
+    sitecode: hueckeswagen
+    areacode: 2192
+    subnet4: 10.146.0.0/16
+    subnet6ula: "fddf:ebfd:a801:2192::/64"
+    subnet6: "FIXME"
+    port: 15146
+    anycastIP: "ac1"
+    ssid: hw.freifunk.net
+    domain: freifunk-hueckeswagen.de
+    update_server1: "fff1"
+    update_server2: "fff2"
+    city: Hückeswagen
+    city2: Hückeswagenener
+    remotes:
+      bragi: "cdcfefb799dca56262fbeaa0cc64c3d5f88556d6779793f4339506864ba897c7"
+      rig: "9929003ccf47db6c2743aea782bc6d6164207a127b4619a8d64774c45fb44356"
+      zoidberg: "78541bea5ffa637c31b973a754e49b0ee1319052910631588a4d25fe99cffcbd"
+    
+  kuerten:
+    name: "Freifunk Kürten"
+    shortname: krtn
+    sitecode: kuerten
+    areacode: 2268
+    subnet4: 10.16.0.0/17
+    subnet6ula: "fddf:ebfd:a801:2268::/64"
+    subnet6: "FIXME"
+    port: 15016
+    anycastIP: "ac1"
+    ssid: kuerten.freifunk.net
+    domain: kuerten.freifunk.net
+    update_server1: "fff1"
+    update_server2: "fff2"
+    city: Kürten
+    city2: Kürtener
+    remotes:
+      bragi: "b501238b8bb3b5304c647db9bc18a797b016d962662ccdc5ce901e38b160a9f5"
+      rig: "4f82ae7f23ebe6c7e70baa1a561c8d4eba3feed3cd1bf684390d4902ab58d899"
+    
+  leverkusen:
+    name: "Freifunk Leverkusen"
+    shortname: lev
+    sitecode: leverkusen
+    areacode: 2144
+    subnet4: 10.76.0.0/16
+    subnet6ula: "fddf:ebfd:a801:4859::/64"
+    subnet6: "FIXME"
+    port: 15076
+    anycastIP: "ac1"
+    ssid: lev.freifunk.net
+    domain: freifunk-leverkusen.de
+    update_server1: "fff1"
+    update_server2: "fff2"
+    city: Leverkusen
+    city2: Leverkusener
+    remotes:
+      bragi: "cec71b1bd4c9aad0c906766f71a29d35414c0b4a2a00f177de8ba2be68da517b"
+      rig: "495ec50a98c316a223de13af0a74ec81c982807f96a0615f422c8c14b65f5bcd"
+    
+  lindlar:
+    name: "Freifunk Lindlar"
+    shortname: lind
+    sitecode: lindlar
+    areacode: 2266
+    subnet4: 10.76.0.0/16
+    subnet6ula: "fddf:ebfd:a801:2266::/64"
+    subnet6: "FIXME"
+    port: 15141
+    anycastIP: "ac1"
+    ssid: lindlar.freifunk.net
+    domain: lindlar.freifunk.net
+    update_server1: "fff1"
+    update_server2: "fff2"
+    city: Lindlar
+    city2: Lindlarer
+    remotes:
+      rig: "67fa82a61d723d75fbd6e27538de1c813cfa7056f470c3a78e0d8dada04693d1"
+    
+  muelheim:
+    name: "Freifunk Mülheim an der Ruhr"
+    shortname: mh
+    sitecode: muelheim
+    areacode: 208
+    subnet4: 10.47.0.0/17
+    subnet6ula: "fddf:ebfd:a801:4859::/64"
+    subnet6: "FIXME"
+    port: 15047
+    anycastIP: "ac1"
+    ssid: "Freifunk Mülheim"
+    domain: mh.vfn-nrw.de
+    update_server1: "fff1"
+    update_server2: "fff2"
+    city: "Mülheim an der Ruhr"
+    city2: Mülheimer
+    remotes:
+      bragi: "51d9eada97201aff6e78939080913a827ed2588322409106a8c8d4140522e76e"
+      rig: "a646f9f62f7b62b138a708c6cad412795ee4d24db1e4064b0cdcadde5cb643a2"
+    
+  neutral:
+    name: "Verbund freier Netzwerke NRW e.V."
+    shortname: vfn
+    sitecode: neutral
+    areacode: ff
+    subnet4: 10.171.0.0/16
+    subnet6ula: "fddf:ebfd:a801:ff::/64"
+    subnet6: "FIXME"
+    port: 15000
+    anycastIP: "ac1"
+    ssid: "Freifunk vfn-nrw.de"
+    domain: neutral.vfn-nrw.de
+    update_server1: "fff1"
+    update_server2: "fff2"
+    city: Neutral
+    city2: Neutraler
+    remotes:
+      bragi: "d654658fb5d02837e2587e294027d617f19ce73afa64d9313bb960318b9ead83"
+      rig: "9b6505d75afc4b3838e682c48423830b66f304cf2d287cfe5d6d09670176372d"
+    
+  remscheid:
+    name: "Freifunk Remscheid"
+    shortname: rs
+    sitecode: remscheid
+    areacode: 2191
+    subnet4: 10.69.0.0/16
+    subnet6ula: "fddf:ebfd:a801:2191::/64"
+    subnet6: "FIXME"
+    port: 15069
+    anycastIP: "ac1"
+    ssid: rs.freifunk.net
+    domain: freifunk-remscheid.de
+    update_server1: "fff1"
+    update_server2: "fff2"
+    city: Remscheid
+    city2: Remscheider
+    remotes:
+      bragi: "4d3e470d707f79a28f269177c5bf9a884c3ded4890e426eacac5f12ade9acfad"
+      rig: "e433b8aa10ddac906b89bde3effcedfdcc0a467956f8d949c5df3a4e0e6b9b56"
+    
+  solingen:
+    name: "Freifunk Solingen"
+    shortname: sg
+    sitecode: solingen
+    areacode: 212
+    subnet4: 10.6.0.0/16
+    subnet6ula: "fddf:ebfd:a801:4859::/64"
+    subnet6: "FIXME"
+    port: 15006
+    anycastIP: "ac1"
+    ssid: sg.freifunk.net
+    domain: freifunk-in-solingen.de
+    update_server1: "fff1"
+    update_server2: "fff2"
+    city: Solingen
+    city2: Solinger
+    remotes:
+      bragi: "ad739671d0258f38deba50e513c652b57ef09bfcce26c549aae91b3caa4f9d92"
+      rig: "9881a79b6100a2c388e150973dc8e49c005e233366ebe206ef0e034d9b4d0ee1"
+    
+  wermelskirchen:
+    name: "Freifunk Wermelskirchen"
+    shortname: wk
+    sitecode: wermelskirchen
+    areacode: 2196
+    subnet4: 10.52.0.0/16
+    subnet6ula: "fddf:ebfd:a801:2196::/64"
+    subnet6: "FIXME"
+    port: 15052
+    anycastIP: "ac1"
+    ssid: wk.freifunk.net
+    domain: freifunk-wermelskirchen.de
+    update_server1: "fff1"
+    update_server2: "fff2"
+    city: Wermelskirchen
+    city2: Wermelskirchener
+    remotes:
+      bragi: "7d0543ebafdde88978817d514c21b09b965540b0181096e27f672aae5232648f"
+      rig: "1827f8a6a481ee5e3488d5888453d14943bd934dfa401bb9e43a44915e4ae3cf"
+    
+  wipperfuerth:
+    name: "Freifunk Wipperfürth"
+    shortname: wipp
+    sitecode: wipperfuerth
+    areacode: 2267
+    subnet4: 10.224.0.0/16
+    subnet6ula: "fddf:ebfd:a801:2267::/64"
+    subnet6: "FIXME"
+    port: 15224
+    anycastIP: "ac1"
+    ssid: wipp.freifunk.net
+    domain: wipp.freifunk.net
+    update_server1: "fff1"
+    update_server2: "fff2"
+    city: Wipperfürth
+    city2: Wipperfürther
+    remotes:
+      bragi: "d57c4409658033f6000b382f4c5a947c73ef43da957330de19c89ac355c4117b"
+      rig: "4c42a5dbc9aa891c636ca9e09739188924643d35603bb9cbde18e6394e9a7d0c"
+    

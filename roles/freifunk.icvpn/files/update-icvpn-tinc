@@ -1,0 +1,28 @@
+#!/bin/bash
+# was: post-merge hook for Debian systems
+
+cd /etc/tinc/icvpn
+git pull -q
+
+
+fail() {
+  echo "$1" >&2
+  exit 1
+}
+
+BASE=$(git rev-parse --show-toplevel)
+TINCCFG=$BASE/tinc.conf
+test -w $TINCCFG || fail "ERR: $TINCCFG is not writeable"
+
+sed -i '/^ConnectTo/d' $TINCCFG
+
+for HOST in hosts/*; do
+  # skip hosts without address
+  grep -q '^Address' -- "$HOST" || continue
+
+  echo "ConnectTo = ${HOST##*/}" >> $TINCCFG
+done
+
+systemctl reload tincd@icvpn.service
+
+exit 0
